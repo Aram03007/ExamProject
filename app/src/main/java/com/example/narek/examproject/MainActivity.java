@@ -92,27 +92,12 @@ public class MainActivity extends AppCompatActivity {
 
                 ByteArrayOutputStream bytes = new ByteArrayOutputStream();
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
-
-                File f = new File(Environment.getExternalStorageDirectory()
-                        + File.separator + "temporary_file.jpg");
-//                try {
-//                    if (f.exists()) f.delete();
-//                    boolean created = f.createNewFile();
-//                    if (!created) {
-//                        Log.d("save image", "file doesn't created");
-//                        return true;
-//                    }
-//                    FileOutputStream fo = new FileOutputStream(f);
-//                    fo.write(bytes.toByteArray());
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
+                Uri uri = Uri.parse(MediaStore.Images.Media.insertImage(this.getContentResolver(), bitmap, "Title", null));
 
 
-                Uri bmpUri = Uri.parse("file:///sdcard/temporary_file.jpg");
 
                 final Intent shareIntent = new Intent(android.content.Intent.ACTION_SEND);
-                shareIntent.putExtra(Intent.EXTRA_STREAM, bmpUri);
+                shareIntent.putExtra(Intent.EXTRA_STREAM, uri);
                 shareIntent.setType("image/*");
 
                 startActivity(Intent.createChooser(shareIntent, "Select application to share"));
