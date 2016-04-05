@@ -99,8 +99,6 @@ public class MainActivity extends AppCompatActivity {
                 final Intent shareIntent = new Intent(android.content.Intent.ACTION_SEND);
                 shareIntent.putExtra(Intent.EXTRA_STREAM, uri);
                 shareIntent.setType("image/*");
-
-                startActivity(Intent.createChooser(shareIntent, "Select application to share"));
                 Share share = new Share();
                 share.setmNotifyManager((NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE));
                 share.setmBuilder(new android.support.v7.app.NotificationCompat.Builder(MainActivity.this));
@@ -110,6 +108,9 @@ public class MainActivity extends AppCompatActivity {
 
 
                 share.execute();
+
+                startActivity(Intent.createChooser(shareIntent, "Select application to share"));
+
 
                 return true;
 
