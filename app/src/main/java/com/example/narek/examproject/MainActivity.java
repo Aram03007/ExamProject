@@ -100,7 +100,6 @@ public class MainActivity extends AppCompatActivity {
                         .setContentText("Sharing in progress")
                         .setSmallIcon(R.drawable.icon);
 
-
                 share.execute();
 
                 startActivity(Intent.createChooser(shareIntent, "Select application to share"));
