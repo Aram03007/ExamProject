@@ -26,10 +26,6 @@ public class MainActivity extends AppCompatActivity {
 
     DrawView drawView;
 
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,8 +33,6 @@ public class MainActivity extends AppCompatActivity {
 
         drawView = (DrawView) findViewById(R.id.draw_view);
         getSharedImage();
-
-
 
 
 

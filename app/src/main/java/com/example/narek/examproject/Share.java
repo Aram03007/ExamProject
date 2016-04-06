@@ -25,9 +25,6 @@ public class Share extends AsyncTask<Void, Integer, Integer> {
         return mBuilder;
     }
 
-    public int getId() {
-        return id;
-    }
 
     @Override
     protected void onPreExecute () {
@@ -65,8 +62,6 @@ public class Share extends AsyncTask<Void, Integer, Integer> {
         mBuilder.setContentText("Download complete");
 
         mBuilder.setProgress(0, 0, false);
-//        PendingIntent pi = new PendingIntent(th, MainActivity.class);
-//        mBuilder.setContentIntent(P)
         mNotifyManager.notify(id, mBuilder.build());
     }
 
